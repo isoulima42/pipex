@@ -2,6 +2,8 @@
 
 # pipex
 
+<img src="score.png" width="150" alt="Score 100/100">
+
 ![Language](https://img.shields.io/badge/Language-C-blue)
 ![Norminette](https://img.shields.io/badge/Norminette-OK-brightgreen)
 
