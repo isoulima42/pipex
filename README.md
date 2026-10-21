@@ -1,4 +1,4 @@
-*Ce projet a été réalisé dans le cadre du cursus de 42 par isoulima.*
+*This project has been created as part of the 42 curriculum by isoulima.*
 
 # pipex
 
@@ -9,11 +9,11 @@
 
 ## Description
 
-pipex reproduit le comportement du pipe shell : `< file1 cmd1 | cmd2 > file2`.
-Il crée deux processus enfants via `fork()`, les relie par un `pipe()`, et exécute
-chaque commande avec `execve()` après résolution du chemin via la variable `PATH`.
-Le projet introduit la programmation concurrente : c'est le premier projet 42 où
-deux processus tournent simultanément. Le code de sortie retourné est celui de `cmd2`.
+pipex reproduces the behavior of the shell pipe: `< file1 cmd1 | cmd2 > file2`.
+It creates two child processes with `fork()`, connects them with a `pipe()`, and runs
+each command with `execve()` after resolving its path through the `PATH` variable.
+The project introduces concurrent programming: it is the first 42 project where
+two processes run at the same time. The exit code returned is the one of `cmd2`.
 
 ---
 
@@ -25,27 +25,27 @@ deux processus tournent simultanément. Le code de sortie retourné est celui de
 make
 ```
 
-Un exécutable `pipex` est généré.
+A `pipex` executable is generated.
 
 ```bash
-make clean    # supprime les .o
-make fclean   # supprime les .o et pipex
-make re       # recompile tout
+make clean    # removes the .o files
+make fclean   # removes the .o files and pipex
+make re       # rebuilds everything
 ```
 
-### Utilisation
+### Usage
 
 ```bash
 ./pipex file1 "cmd1" "cmd2" file2
 ```
 
-Équivalent shell :
+Shell equivalent:
 
 ```bash
 < file1 cmd1 | cmd2 > file2
 ```
 
-Exemple concret :
+Concrete example:
 
 ```bash
 ./pipex /etc/passwd "grep root" "wc -l" out.txt
@@ -53,31 +53,31 @@ Exemple concret :
 
 ---
 
-## Fonctionnalités
+## Features
 
-- Résolution automatique des commandes via `PATH`
-- Commandes avec arguments (`"grep -i pattern"`, `"sort -r"`)
-- Chemins absolus acceptés (`"/bin/cat"`)
-- `file1` inexistant : erreur sur stderr, `cmd2` reçoit une entrée vide
-- Commande introuvable : `perror` sur stderr, `exit(127)`
-- `file2` créé s'il n'existe pas, tronqué s'il existe (`O_TRUNC`)
-- Code de sortie = code de sortie de `cmd2`
-
----
-
-## Choix techniques
-
-- **Deux forks séquentiels** — `child_one` et `child_two` sont lancés depuis le parent,
-  qui ferme ensuite les deux extrémités du pipe avant d'attendre les enfants.
-- **Fallback `/dev/null`** sur `file1` inexistant — permet à `cmd2` de s'exécuter
-  avec une entrée vide plutôt que d'abandonner toute la commande.
-- **Résolution PATH** : `get_env_path` extrait la variable `PATH` depuis `env[]`,
-  `ft_split` la découpe sur `:`, `try_paths` teste chaque répertoire avec `access(X_OK)`.
-- **Dépendance libft** : `ft_split`, `ft_strjoin`, `ft_strdup`, `ft_strncmp`, `ft_putstr_fd`.
+- Automatic command resolution through `PATH`
+- Commands with arguments (`"grep -i pattern"`, `"sort -r"`)
+- Absolute paths accepted (`"/bin/cat"`)
+- Missing `file1`: error on stderr, `cmd2` receives an empty input
+- Command not found: `perror` on stderr, `exit(127)`
+- `file2` created if it does not exist, truncated if it does (`O_TRUNC`)
+- Exit code = exit code of `cmd2`
 
 ---
 
-## Ressources
+## Technical choices
+
+- **Two sequential forks** — `child_one` and `child_two` are launched from the parent,
+  which then closes both ends of the pipe before waiting for the children.
+- **`/dev/null` fallback** on a missing `file1` — lets `cmd2` run with an empty input
+  instead of aborting the whole command.
+- **PATH resolution**: `get_env_path` extracts the `PATH` variable from `env[]`,
+  `ft_split` splits it on `:`, `try_paths` tests each directory with `access(X_OK)`.
+- **libft dependency**: `ft_split`, `ft_strjoin`, `ft_strdup`, `ft_strncmp`, `ft_putstr_fd`.
+
+---
+
+## Resources
 
 - `man 2 pipe`
 - `man 2 fork`
@@ -85,21 +85,21 @@ Exemple concret :
 - `man 2 dup2`
 - `man 2 waitpid`
 - `man 2 access`
-- Sujet officiel 42
+- Official 42 subject
 
 ---
 
 ## AI usage
 
-L'IA a été utilisée uniquement pour :
-- clarifier le fonctionnement de `pipe()`, `fork()` et `execve()`
-- structurer ce README
+AI was used only to:
+- clarify how `pipe()`, `fork()` and `execve()` work
+- structure this README
 
-L'implémentation, la logique et la compréhension du code ont été réalisées manuellement.
+The implementation, the logic and the understanding of the code were done manually.
 
 ---
 
-## Auteur
+## Author
 
 42 Lausanne
-Login : isoulima
+Login: isoulima

@@ -1,4 +1,4 @@
-*Ce projet a été réalisé dans le cadre du cursus de 42 par isoulima.*
+*This project has been created as part of the 42 curriculum by isoulima.*
 
 # Libft
 
@@ -9,7 +9,7 @@
 
 ## Description
 
-Libft est le tout premier projet du cursus 42. Il consiste à recoder une bibliothèque de fonctions C standard, puis à l'enrichir avec des fonctions utilitaires supplémentaires. Le projet permet de comprendre en profondeur le fonctionnement des fonctions de la libc, la gestion de la mémoire dynamique et la manipulation de chaînes de caractères. La partie bonus introduit les listes chaînées.
+Libft is the very first project of the 42 curriculum. It consists of re-implementing a library of standard C functions, then extending it with additional utility functions. The project gives an in-depth understanding of how libc functions work, of dynamic memory management and of string manipulation. The bonus part introduces linked lists.
 
 ---
 
@@ -18,16 +18,16 @@ Libft est le tout premier projet du cursus 42. Il consiste à recoder une biblio
 ### Compilation
 
 ```bash
-make        # compile la bibliothèque libft.a
-make bonus  # compile avec les fonctions bonus (listes chaînées)
-make clean  # supprime les .o
-make fclean # supprime les .o et libft.a
-make re     # recompile tout
+make        # builds the libft.a library
+make bonus  # builds with the bonus functions (linked lists)
+make clean  # removes the .o files
+make fclean # removes the .o files and libft.a
+make re     # rebuilds everything
 ```
 
-### Utilisation
+### Usage
 
-Inclure le header et compiler avec la bibliothèque :
+Include the header and compile with the library:
 
 ```bash
 cc main.c libft.a
@@ -47,98 +47,98 @@ int main(void)
 
 ---
 
-## Fonctionnalités
+## Features
 
-### Fonctions libc
+### Libc functions
 
-| Fonction | Description |
+| Function | Description |
 |----------|-------------|
-| `ft_isalpha` | vérifie si c'est une lettre |
-| `ft_isdigit` | vérifie si c'est un chiffre |
-| `ft_isalnum` | vérifie si c'est alphanumérique |
-| `ft_isascii` | vérifie si c'est un caractère ASCII |
-| `ft_isprint` | vérifie si c'est imprimable |
-| `ft_strlen` | longueur d'une chaîne |
-| `ft_memset` | remplit une zone mémoire |
-| `ft_bzero` | met une zone mémoire à zéro |
-| `ft_memcpy` | copie une zone mémoire |
-| `ft_memmove` | copie avec gestion du chevauchement |
-| `ft_strlcpy` | copie sécurisée de chaîne |
-| `ft_strlcat` | concaténation sécurisée |
-| `ft_toupper` | convertit en majuscule |
-| `ft_tolower` | convertit en minuscule |
-| `ft_strchr` | cherche un caractère dans une chaîne |
-| `ft_strrchr` | cherche un caractère en partant de la fin |
-| `ft_strncmp` | compare deux chaînes sur n caractères |
-| `ft_memchr` | cherche un octet dans une zone mémoire |
-| `ft_memcmp` | compare deux zones mémoire |
-| `ft_strnstr` | cherche une sous-chaîne |
-| `ft_atoi` | convertit une chaîne en entier |
-| `ft_calloc` | allocation mémoire initialisée à zéro |
-| `ft_strdup` | duplique une chaîne |
+| `ft_isalpha` | checks for a letter |
+| `ft_isdigit` | checks for a digit |
+| `ft_isalnum` | checks for an alphanumeric character |
+| `ft_isascii` | checks for an ASCII character |
+| `ft_isprint` | checks for a printable character |
+| `ft_strlen` | length of a string |
+| `ft_memset` | fills a memory area |
+| `ft_bzero` | zeroes a memory area |
+| `ft_memcpy` | copies a memory area |
+| `ft_memmove` | copies with overlap handling |
+| `ft_strlcpy` | size-bounded string copy |
+| `ft_strlcat` | size-bounded string concatenation |
+| `ft_toupper` | converts to uppercase |
+| `ft_tolower` | converts to lowercase |
+| `ft_strchr` | finds a character in a string |
+| `ft_strrchr` | finds a character starting from the end |
+| `ft_strncmp` | compares two strings over n characters |
+| `ft_memchr` | finds a byte in a memory area |
+| `ft_memcmp` | compares two memory areas |
+| `ft_strnstr` | finds a substring |
+| `ft_atoi` | converts a string to an integer |
+| `ft_calloc` | zero-initialized memory allocation |
+| `ft_strdup` | duplicates a string |
 
-### Fonctions supplémentaires
+### Additional functions
 
-| Fonction | Description |
+| Function | Description |
 |----------|-------------|
-| `ft_substr` | extrait une sous-chaîne |
-| `ft_strjoin` | concatène deux chaînes |
-| `ft_strtrim` | supprime des caractères en début/fin |
-| `ft_split` | découpe une chaîne selon un délimiteur |
-| `ft_itoa` | convertit un entier en chaîne |
-| `ft_strmapi` | applique une fonction à chaque caractère (nouveau) |
-| `ft_striteri` | applique une fonction à chaque caractère (en place) |
-| `ft_putchar_fd` | écrit un caractère sur un fd |
-| `ft_putstr_fd` | écrit une chaîne sur un fd |
-| `ft_putendl_fd` | écrit une chaîne + newline sur un fd |
-| `ft_putnbr_fd` | écrit un nombre sur un fd |
+| `ft_substr` | extracts a substring |
+| `ft_strjoin` | concatenates two strings |
+| `ft_strtrim` | removes characters from the start/end |
+| `ft_split` | splits a string on a delimiter |
+| `ft_itoa` | converts an integer to a string |
+| `ft_strmapi` | applies a function to each character (new string) |
+| `ft_striteri` | applies a function to each character (in place) |
+| `ft_putchar_fd` | writes a character to an fd |
+| `ft_putstr_fd` | writes a string to an fd |
+| `ft_putendl_fd` | writes a string + newline to an fd |
+| `ft_putnbr_fd` | writes a number to an fd |
 
-### Bonus (listes chaînées)
+### Bonus (linked lists)
 
-| Fonction | Description |
+| Function | Description |
 |----------|-------------|
-| `ft_lstnew` | crée un nouvel élément |
-| `ft_lstadd_front` | ajoute au début |
-| `ft_lstsize` | compte les éléments |
-| `ft_lstlast` | renvoie le dernier élément |
-| `ft_lstadd_back` | ajoute à la fin |
-| `ft_lstdelone` | supprime un élément |
-| `ft_lstclear` | supprime tous les éléments |
-| `ft_lstiter` | applique une fonction à chaque élément |
-| `ft_lstmap` | applique une fonction et crée une nouvelle liste |
+| `ft_lstnew` | creates a new element |
+| `ft_lstadd_front` | adds at the front |
+| `ft_lstsize` | counts the elements |
+| `ft_lstlast` | returns the last element |
+| `ft_lstadd_back` | adds at the back |
+| `ft_lstdelone` | deletes one element |
+| `ft_lstclear` | deletes all elements |
+| `ft_lstiter` | applies a function to each element |
+| `ft_lstmap` | applies a function and creates a new list |
 
 ---
 
-## Choix techniques
+## Technical choices
 
-- Bibliothèque statique (`libft.a`) compilée avec `ar -rc`
-- Flags de compilation stricts : `-Wall -Wextra -Werror`
-- Aucune variable globale
-- Gestion mémoire rigoureuse avec `malloc` / `free`
-- Header unique `libft.h` inclus via le flag `-include` du compilateur
-- Les fonctions bonus sont compilées séparément via `make bonus`
+- Static library (`libft.a`) built with `ar -rc`
+- Strict compilation flags: `-Wall -Wextra -Werror`
+- No global variables
+- Rigorous memory management with `malloc` / `free`
+- Single header `libft.h` included through the compiler's `-include` flag
+- The bonus functions are compiled separately with `make bonus`
 
 ---
 
-## Ressources
+## Resources
 
-- `man 3` des fonctions libc correspondantes
-- Documentation sur les listes chaînées en C
-- Sujet officiel 42
+- `man 3` pages of the matching libc functions
+- Documentation on linked lists in C
+- Official 42 subject
 
 ---
 
 ## AI usage
 
-L'IA a été utilisée uniquement pour :
-- clarifier certains points du sujet
-- structurer ce README
+AI was used only to:
+- clarify some points of the subject
+- structure this README
 
-L'implémentation, la logique et la compréhension du code ont été réalisées manuellement.
+The implementation, the logic and the understanding of the code were done manually.
 
 ---
 
-## Auteur
+## Author
 
 42 Lausanne
-Login : isoulima
+Login: isoulima
